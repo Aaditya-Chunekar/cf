@@ -11,6 +11,7 @@ curl -fsSL https://raw.githubusercontent.com/Aaditya-Chunekar/cf/main/install.sh
 ```
 
 ## Usage
+Use after restarting your shell.
 ```bash
 cf <username>
 ```
