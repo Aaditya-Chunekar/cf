@@ -11,7 +11,7 @@ curl -fsSL https://raw.githubusercontent.com/Aaditya-Chunekar/cf/main/install.sh
 ```
 
 ## Usage
-Use after restarting your shell.
+Use after restarting your shell. No more than 10000 handles is accepted.
 ```bash
-cf <username>
+cf <username1> <username2> <username3> 
 ```
