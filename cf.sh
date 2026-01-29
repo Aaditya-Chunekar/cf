@@ -6,8 +6,8 @@ n=$#
 # always quote - "*$anything*"
 
 #write finding largest 'length of arg' above and replace 15 with it
-printf "%-15s %-10s\n" "handle" "maxRating"
-printf "%-15s %-10s\n" "------" "---------"
+printf "%-15s %-10s %-10s\n" "handle" "rating" "maxRating"
+printf "%-15s %-10s %-10s\n" "------" "------" "---------"
 #understand above lines and change number based on max string length from args
 for arg in "$@"
 do
@@ -19,7 +19,8 @@ do
 		if printf "$res" | grep -q 'maxRating' ; then
 			handle=$arg
 			maxRating=$(printf "$res" | tr "," "\n"| grep 'maxRating' | cut -d ":" -f 2)
-			printf "%-15s %-10s\n" "$handle" "$maxRating"
+			rating=$(printf "$res" | tr "," "\n"| grep 'rating' | cut -d ":" -f 2)
+			printf "%-15s %-10s %-10s\n" "$handle" "$rating" "$maxRating"
 		fi
 		# printf "$(echo $res | awk -F':' '{print $NF}' | cut -d '}' -f 1) is the latest rating.\n" 
 	fi
