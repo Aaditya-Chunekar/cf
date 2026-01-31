@@ -10,8 +10,8 @@ curl -fsSL https://raw.githubusercontent.com/Aaditya-Chunekar/cf/main/install.sh
 ```
 
 ## Usage
-Use after restarting your shell. No more than 10000 handles is accepted.
-1. To get a tabular output of multiple users' stats
+Use after restarting your shell. 
+1. To get a tabular output of multiple users' stats. No more than 10000 handles is accepted.
 ```bash
 cf <username1> <username2> <username3> 
 ```
