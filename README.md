@@ -18,9 +18,7 @@ cf <username1> <username2> <username3>
 2. To get recommended problems for a single user
 ```bash
 cf -r <username>
-```
-or
-```bash
+# or
 cf --recommend <username>
 ```
 
