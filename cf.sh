@@ -12,16 +12,16 @@ then
 	for line in $seen
 	do
 		# printf "line is %s\n" "$line"
-		if printf "$prob" | grep -q "$line"
+		# below 'true' is necesasary to counter set -e
+		if printf "$prob" | grep -q "$line" || true
 		then
 
 			prob=$(printf "$prob" | grep -v "$line")
 			
 		fi
 	done
-	printf "$prob"
+	printf "$prob\n"
 	exit 0
-
 fi
 #write finding largest 'length of arg' above and replace 15 with it
 printf "%-15s %-6s %-10s %-10s %-12s\n" "handle" "rating" "maxRating" "nContests" "contribution"

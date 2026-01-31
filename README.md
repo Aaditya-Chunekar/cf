@@ -1,6 +1,6 @@
 # cf
 
-A simple CLI that get any user's codeforces rating and recommends questions.
+A simple CLI that gets any user's codeforces rating and recommends questions.
 Built this for learning shell and packaging.
 
 ## Install
