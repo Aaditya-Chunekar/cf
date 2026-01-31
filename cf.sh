@@ -4,7 +4,25 @@ VERSION="1.0.0"
 n=$#
 # semicolon is reqd. only when do or then is on the same line
 # always quote - "*$anything*"
+if [ "$1" = '-r' ] || [ "$1" = '--recommend' ]
+then
+	printf "Problems recommended for $2 are:\n"
+	seen=$(curl -s https://codeforces.com/api/user.status?handle=$2 | tr '{' '\n' | grep index | cut -d "," -f 1,2 | uniq)
+	prob=$(curl -s https://codeforces.com/api/problemset.problems | tr '{' '\n' | grep solvedCount | sort -t: -k4,4nr| cut -d "," -f 1,2)
+	for line in $seen
+	do
+		# printf "line is %s\n" "$line"
+		if printf "$prob" | grep -q "$line"
+		then
 
+			prob=$(printf "$prob" | grep -v "$line")
+			
+		fi
+	done
+	printf "$prob"
+	exit 0
+
+fi
 #write finding largest 'length of arg' above and replace 15 with it
 printf "%-15s %-6s %-10s %-10s %-12s\n" "handle" "rating" "maxRating" "nContests" "contribution"
 printf "%-15s %-6s %-10s %-10s %-12s\n" "------" "------" "---------" "---------" "------------"
