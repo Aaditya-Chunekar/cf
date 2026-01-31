@@ -7,7 +7,7 @@ n=$#
 if [ "$1" = '-r' ] || [ "$1" = '--recommend' ]
 then
 	printf "Problems recommended for $2 are:\n"
-	seen=$(curl -s https://codeforces.com/api/user.status?handle=$2 | tr '{' '\n' | grep index | cut -d "," -f 1,2 | uniq)
+	seen=$(curl -s https://codeforces.com/api/user.status?handle=$2 | tr '{' '\n' | grep index | cut -d "," -f 1,2 | sort | uniq)
 	prob=$(curl -s https://codeforces.com/api/problemset.problems | tr '{' '\n' | grep solvedCount | sort -t: -k4,4nr| cut -d "," -f 1,2)
 	for line in $seen
 	do
