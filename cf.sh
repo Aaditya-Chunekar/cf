@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-VERSION="1.0.0"
 n=$#
 # semicolon is reqd. only when do or then is on the same line
 # always quote - "*$anything*"
@@ -20,7 +19,7 @@ then
 			
 		fi
 	done
-	printf "$prob\n"
+	printf "%s\n" "$prob" | head
 	exit 0
 fi
 #write finding largest 'length of arg' above and replace 15 with it
