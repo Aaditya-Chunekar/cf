@@ -19,7 +19,10 @@ then
 			
 		fi
 	done
-	printf "%s\n" "$prob" | head
+	# falling left backslash for multiline cmd in script
+	printf "%s\n" "$prob" | head -n 5 | cut -d '"' -f 3,6 | \
+	tr ',' '/' | tr -d '"' | \
+	sed 's|:|https://codeforces.com/problemset/problem/|g'
 	exit 0
 fi
 #write finding largest 'length of arg' above and replace 15 with it
