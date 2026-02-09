@@ -35,8 +35,6 @@ do
 	userRating=$(curl -s "https://codeforces.com/api/user.rating?handle=$arg")
 	sts=$(echo "$res" | cut -d ":" -f 2 | cut -d "," -f 1)
 	if [ "$sts" =  '"OK"' ]; then
-		# printf "\e[4m$arg\e[0m exists.\n"
-		
 		if printf "$res" | grep -q 'maxRating' ; then
 			handle=$arg
 			maxRating=$(printf "$res" | tr "," "\n"| grep 'maxRating' | cut -d ":" -f 2)
@@ -45,7 +43,6 @@ do
 			contribution=$(printf "$res" | tr "," "\n"| grep 'contribution' | cut -d ":" -f 2)
 			printf "%-15s %-6s %-10s %-10s %-12s\n" "$handle" "$rating" "$maxRating" "$nContests" "$contribution"
 		fi
-		# printf "$(echo $res | awk -F':' '{print $NF}' | cut -d '}' -f 1) is the latest rating.\n" 
 	fi
 done
 
